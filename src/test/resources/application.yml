@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: turbine
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+server:
+  port: 8080
+  servlet:
+    context-path: /turbine
+
+api-path:
+  v1: /api/v1
+
+turbine:
+  isc-key: ${TURBINE_ISC_KEY:Mc5AmeGBbcyZJbQkK6SX5j0nK4dU3NtVD/O7Xnz3erY=}
+
+propay:
+  propay-isc-key: ${PROPAY_ISC_KEY:wUw44gbtJypwPkvPnW+nrS5lc3ZpjrZRxQkSSN3VirY=}
+  propay-url: ${PROPAY_URL:/propay}/api/v1
+  initiate-path: /pg/initiate
+  callback-path: /callback/process
+  s2s-path: /s2s/process
+payment:
+  payment-isc-key: ${PAYMENT_ISC_KEY:P3aMHjmlViw61u6QJhP38GsX7wxfM6GPgDQOTdrBC/g=}
+  payment-url: ${PAYMENT_URL:/payment}/api/v1
+themis:
+  themis-isc-key: ${THEMIS_ISC_KEY:/2Wk4xxS1j53auCr2CIHui0FJn5u2sh5ggKehfAtXMA=}
+  themis-url: ${THEMIS_URL:/themis}/api/v1
+  provider-path: /rules/payment
+
+order:
+  order-isc-key: ${ORDER_ISC_KEY:meTQ7Cv/yfpbJ6v/mv5xbCUxnNoBk3I3nIgiBXkIy/A=}
+  order-url: ${ORDER_URL:/order}/olm-hook/v1
+  update-order: /order-payment
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: turbine
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+server:
+  port: 8080
+  servlet:
+    context-path: /turbine
+
+api-path:
+  v1: /api/v1
+
+turbine:
+  isc-key: ${TURBINE_ISC_KEY:}
+
+propay:
+  propay-isc-key: ${PROPAY_ISC_KEY:}
+  propay-url: ${PROPAY_URL}/api/v1
+  initiate-path: /pg/initiate
+  callback-path: /callback/process
+  s2s-path: /s2s/process
+payment:
+  payment-isc-key: ${PAYMENT_ISC_KEY}
+  payment-url: ${PAYMENT_URL:}/api/v1/payment
+themis:
+  themis-isc-key: ${THEMIS_ISC_KEY:}
+  themis-url: ${THEMIS_URL}/api/v1
+  provider-path: /rules/payment
+
+order:
+  order-isc-key: ${ORDER_ISC_KEY}
+  order-url: ${ORDER_URL}/olm-hook/v1
+  update-order: /order-payment
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
